@@ -30,11 +30,13 @@ class DimTileService : TileService() {
         val canWrite = Settings.System.canWrite(this)
 
         if (canWrite) {
-            Toast.makeText(this, "Go drink a cortado", Toast.LENGTH_LONG).show()
             toggleCortado()
         } else {
             // TODO: Add info page for why you need to do this
-            startActivityAndCollapse(Intent(ACTION_MANAGE_WRITE_SETTINGS))
+            val permissionIntent = Intent(ACTION_MANAGE_WRITE_SETTINGS).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivityAndCollapse(permissionIntent)
         }
     }
 
