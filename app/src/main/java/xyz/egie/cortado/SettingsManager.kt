@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.SharedPreferences
 import android.provider.Settings
+import android.util.Log
 import androidx.annotation.IntegerRes
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
@@ -12,8 +13,8 @@ import kotlin.time.toDuration
 
 @ExperimentalTime
 class SettingsManager(
-    private val context: Context,
-    private val contentResolver: ContentResolver
+    private val contentResolver: ContentResolver,
+    private val preferences: CortadoPreferences
 ) {
 
     companion object {
@@ -22,16 +23,20 @@ class SettingsManager(
 
     var isScreenDimAtMaxTime: Boolean
         get() {
-            val maxTime = MAX_SCREEN_DIM_TIME.toDuration(TimeUnit.SECONDS)
-            val currentTime = screenOffTimeout
+            val maxTimeout = MAX_SCREEN_DIM_TIME.toDuration(TimeUnit.MILLISECONDS)
+            val currentTimeout = screenOffTimeout
 
-            return maxTime == currentTime
+            return maxTimeout == currentTimeout
         }
         set(value) {
-            val maxTime = MAX_SCREEN_DIM_TIME.toDuration(TimeUnit.SECONDS)
+            val maxTimeout = MAX_SCREEN_DIM_TIME.toDuration(TimeUnit.MILLISECONDS)
+            if (screenOffTimeout != maxTimeout) {
+                preferences.previousDimTimeout = screenOffTimeout
+            }
+
 
             screenOffTimeout = if (value) {
-                maxTime
+                maxTimeout
             } else {
                 preferences.previousDimTimeout
             }
@@ -40,13 +45,13 @@ class SettingsManager(
     private var screenOffTimeout: Duration
         get() {
             return Settings.System.getString(contentResolver, Settings.System.SCREEN_OFF_TIMEOUT)
-                ?.toInt()?.toDuration(TimeUnit.SECONDS) ?: preferences.previousDimTimeout
+                ?.toInt()?.toDuration(TimeUnit.MILLISECONDS) ?: preferences.previousDimTimeout
         }
         set(value) {
-            Settings.System.putString(contentResolver, Settings.System.SCREEN_OFF_TIMEOUT, value.toString())
+            Settings.System.putString(
+                contentResolver,
+                Settings.System.SCREEN_OFF_TIMEOUT,
+                value.toLongMilliseconds().toInt().toString()
+            )
         }
-
-    private val preferences by lazy {
-        CortadoPreferences(context)
-    }
 }

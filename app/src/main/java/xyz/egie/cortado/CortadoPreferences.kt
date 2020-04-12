@@ -1,7 +1,6 @@
 package xyz.egie.cortado
 
 import android.content.Context
-import android.content.SharedPreferences
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -12,7 +11,9 @@ class CortadoPreferences(private val context: Context) {
 
     companion object {
         private const val KEY_PREVIOUS_DIM_TIMEOUT = "KEY_PREVIOUS_DIM_TIMEOUT"
-        private const val DEFAULT_DIM_TIMEOUT_MS = 60_000L
+
+        // TODO: Add preferences UI for setting fallback time?
+        private const val DEFAULT_DIM_TIMEOUT_MS = 15_000L
     }
 
     private val preferences = context.getSharedPreferences("Cortado", Context.MODE_PRIVATE)
@@ -26,6 +27,6 @@ class CortadoPreferences(private val context: Context) {
             return savedMs.toDuration(TimeUnit.MILLISECONDS)
         }
         set(value) {
-            preferences.edit().putLong(KEY_PREVIOUS_DIM_TIMEOUT, value.toLongMilliseconds()).apply()
+            preferences.edit().putLong(KEY_PREVIOUS_DIM_TIMEOUT, value.toLong(TimeUnit.MILLISECONDS)).apply()
         }
 }
