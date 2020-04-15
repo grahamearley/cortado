@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/hawQWwC.png" width="400" />
+<img src="https://i.imgur.com/7RjHN8V.png" width="400" />
 An Android app for keeping your screen awake.
 
 ***
