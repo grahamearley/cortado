@@ -23,6 +23,16 @@ class DimTileService : TileService() {
         updateTileState()
     }
 
+    override fun onTileAdded() {
+        super.onTileAdded()
+        preferences.isTileAdded.value = true
+    }
+
+    override fun onTileRemoved() {
+        super.onTileRemoved()
+        preferences.isTileAdded.value = false
+    }
+
     override fun onClick() {
         super.onClick()
 
