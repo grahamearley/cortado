@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Cortado</string>
+    <string name="cortado_lower_case">cortado</string>
 </resources>
