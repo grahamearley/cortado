@@ -6,6 +6,28 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:fontFamily">@font/karla</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Text.Header" parent="Text">
+        <item name="android:textSize">48sp</item>
+    </style>
+
+    <style name="Text.Paragraph" parent="Text">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Text.Paragraph.Accent" parent="Text.Paragraph">
+        <item name="android:textColor">@color/text_accent</item>
     </style>
 
 </resources>

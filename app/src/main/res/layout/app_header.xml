@@ -21,13 +21,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/cortado_lower_case"
-        android:textSize="48sp"
-        android:fontFamily="@font/karla"
-        android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintWidth_default="wrap"
         app:layout_constraintTop_toTopOf="@id/headerIconView"
         app:layout_constraintBottom_toBottomOf="@id/headerIconView"
         app:layout_constraintStart_toEndOf="@id/headerIconView"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Text.Header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
