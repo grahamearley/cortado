@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="64dp">
+
+        <include layout="@layout/app_header"
+            android:id="@+id/headerView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/cortado_header_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/enabledSettingTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/when_enabled_setting_header"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerView"
+            style="@style/Text.Paragraph"/>
+
+        <Spinner
+            android:id="@+id/enabledSettingSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/enabledSettingTextView"
+            app:layout_constraintEnd_toEndOf="@id/enabledSettingTextView"
+            app:layout_constraintTop_toBottomOf="@id/enabledSettingTextView"/>
+
+        <TextView
+            android:id="@+id/disabledSettingTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/when_disabled_setting_header"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enabledSettingSpinner"
+            style="@style/Text.Paragraph"/>
+
+        <Spinner
+            android:id="@+id/disabledSettingSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/disabledSettingTextView"
+            app:layout_constraintEnd_toEndOf="@id/disabledSettingTextView"
+            app:layout_constraintTop_toBottomOf="@id/disabledSettingTextView"/>
+
+        <TextView
+            android:id="@+id/confirmationSettingTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/confirmation_setting_header"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/disabledSettingSpinner"
+            style="@style/Text.Paragraph"/>
+
+        <Spinner
+            android:id="@+id/confirmationSettingSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/confirmationSettingTextView"
+            app:layout_constraintEnd_toEndOf="@id/confirmationSettingTextView"
+            app:layout_constraintTop_toBottomOf="@id/confirmationSettingTextView"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

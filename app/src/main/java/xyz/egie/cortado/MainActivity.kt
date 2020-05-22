@@ -2,6 +2,7 @@ package xyz.egie.cortado
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.time.ExperimentalTime
@@ -27,13 +28,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun showIntroduction() {
         supportFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .replace(R.id.fragmentContainer, IntroductionFragment())
             .commit()
     }
 
     private fun showSettings() {
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.fragmentContainer, IntroductionFragment())
-//            .commit()
+        supportFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .replace(R.id.fragmentContainer, SettingsFragment())
+            .commit()
     }
 }

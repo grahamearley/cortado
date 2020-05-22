@@ -3,4 +3,7 @@
     <string name="cortado_lower_case">cortado</string>
     <string name="intro_text">Cortado is a quick settings tile that allows you to prevent your screen from dimming.</string>
     <string name="instruction_text">Swipe from the top of your screen to access your quick settings tiles.\n\nTo add Cortado, edit your quick settings tiles, and look for the * icon. Drag it into your quick settings tiles!\n\nOnce your tile is added, you can change settings here.</string>
+    <string name="when_enabled_setting_header">When Cortado is enabled, set my dim timeout to</string>
+    <string name="when_disabled_setting_header">When I disable Cortado, set my dim timeout to</string>
+    <string name="confirmation_setting_header">When I enable Cortado,</string>
 </resources>
