@@ -6,4 +6,13 @@
     <string name="when_enabled_setting_header">When Cortado is enabled, set my dim timeout to</string>
     <string name="when_disabled_setting_header">When I disable Cortado, set my dim timeout to</string>
     <string name="confirmation_setting_header">When I enable Cortado,</string>
+
+    <string name="setting_max_time">the maximum time.</string>
+    <string name="setting_fixed_time_nanos">%1d nanoseconds.</string>
+    <string name="setting_fixed_time_micros">%1d microseconds.</string>
+    <string name="setting_fixed_time_millis">%1d milliseconds.</string>
+    <string name="setting_fixed_time_sec">%1d seconds.</string>
+    <string name="setting_fixed_time_mins">%1d minutes.</string>
+    <string name="setting_fixed_time_hours">%1d hours.</string>
+    <string name="setting_fixed_time_days">%1d days.</string>
 </resources>
