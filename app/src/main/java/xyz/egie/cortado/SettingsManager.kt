@@ -19,6 +19,11 @@ class SettingsManager(
 
     companion object {
         private const val MAX_SCREEN_DIM_TIME = Int.MAX_VALUE
+
+        fun getScreenOffTimeout(contentResolver: ContentResolver): Duration? {
+            return Settings.System.getString(contentResolver, Settings.System.SCREEN_OFF_TIMEOUT)
+                ?.toInt()?.toDuration(TimeUnit.MILLISECONDS)
+        }
     }
 
     var isScreenDimAtMaxTime: Boolean
@@ -44,8 +49,7 @@ class SettingsManager(
 
     private var screenOffTimeout: Duration
         get() {
-            return Settings.System.getString(contentResolver, Settings.System.SCREEN_OFF_TIMEOUT)
-                ?.toInt()?.toDuration(TimeUnit.MILLISECONDS) ?: preferences.previousDimTimeout
+            return getScreenOffTimeout(contentResolver) ?: preferences.previousDimTimeout
         }
         set(value) {
             Settings.System.putString(
