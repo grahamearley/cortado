@@ -42,7 +42,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         val isAtMaxTime = settingsManager.isScreenDimAtMaxTime
         cortadoSwitch.isChecked = isAtMaxTime
 
-
         timeoutTextView.text = if (timeout.inMilliseconds >= Int.MAX_VALUE) {
             "Timeout time = max!"
         } else {
