@@ -5,6 +5,7 @@ import android.provider.Settings
 import android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import xyz.egie.cortado.data.CortadoPreferences
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime

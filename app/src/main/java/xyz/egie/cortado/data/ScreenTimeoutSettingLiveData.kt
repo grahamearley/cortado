@@ -1,9 +1,10 @@
-package xyz.egie.cortado
+package xyz.egie.cortado.data
 
 import android.content.Context
 import android.database.ContentObserver
 import android.os.Handler
 import androidx.lifecycle.LiveData
+import xyz.egie.cortado.SettingsManager
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 

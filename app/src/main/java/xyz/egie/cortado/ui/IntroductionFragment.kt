@@ -1,4 +1,4 @@
-package xyz.egie.cortado
+package xyz.egie.cortado.ui
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.text.style.ImageSpan
 import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_introduction.*
+import xyz.egie.cortado.R
 
 class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

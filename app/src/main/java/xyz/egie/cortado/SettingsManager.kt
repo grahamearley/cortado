@@ -1,11 +1,8 @@
 package xyz.egie.cortado
 
 import android.content.ContentResolver
-import android.content.Context
-import android.content.SharedPreferences
 import android.provider.Settings
-import android.util.Log
-import androidx.annotation.IntegerRes
+import xyz.egie.cortado.data.CortadoPreferences
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -38,7 +35,6 @@ class SettingsManager(
             if (screenOffTimeout != maxTimeout) {
                 preferences.previousDimTimeout = screenOffTimeout
             }
-
 
             screenOffTimeout = if (value) {
                 maxTimeout

@@ -1,11 +1,13 @@
-package xyz.egie.cortado
+package xyz.egie.cortado.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_main.*
+import xyz.egie.cortado.data.CortadoPreferences
+import xyz.egie.cortado.R
+import xyz.egie.cortado.data.ScreenTimeoutSettingLiveData
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime

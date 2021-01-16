@@ -1,4 +1,4 @@
-package xyz.egie.cortado
+package xyz.egie.cortado.data
 
 import android.content.Context
 import java.util.concurrent.TimeUnit
