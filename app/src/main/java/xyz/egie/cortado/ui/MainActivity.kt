@@ -19,13 +19,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // TODO: Use this to determine whether cortado is enabled when
-        //  showing enabled state in the UI.
-        ScreenTimeoutSettingLiveData(this).observe(this, Observer {
-            Log.i("GRAHAM", "screen timeout setting = ${it.inSeconds}")
-        })
-
         preferences.isTileAdded.observe(this,
             Observer { isTileAdded -> onTileAddedChanged(isTileAdded) }
         )
