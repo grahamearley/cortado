@@ -18,4 +18,5 @@
     <string name="cortado_is_enabled">Cortado is enabled.</string>
     <string name="cortado_is_disabled">Cortado is disabled.</string>
     <string name="timeout_time_format">Your screen will turn off after %s seconds of inactivity.</string>
+    <string name="timeout_max_time">Your screen will stay on until you turn it off.</string>
 </resources>

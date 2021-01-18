@@ -4,7 +4,6 @@ import android.animation.LayoutTransition
 import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.cardview.widget.CardView
@@ -50,7 +49,11 @@ class CortadoStatusToggleView(context: Context, attrs: AttributeSet) : CardView(
             }
         )
 
-        descriptionTextView.text = resources.getString(R.string.timeout_time_format, timeout.inSeconds.toString())
+        descriptionTextView.text = if (timeout.inMilliseconds.toInt() == Int.MAX_VALUE) {
+            resources.getString(R.string.timeout_max_time)
+        } else {
+            resources.getString(R.string.timeout_time_format, timeout.inSeconds.toString())
+        }
     }
 
     fun setOnToggleListener(listener: (wasChecked: Boolean) -> Unit) {
