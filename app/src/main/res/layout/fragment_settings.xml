@@ -13,13 +13,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cortadoSwitch"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.33"/>
 
     <xyz.egie.cortado.view.CortadoStatusToggleView
         android:id="@+id/cortadoSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         app:layout_constraintStart_toStartOf="parent"
