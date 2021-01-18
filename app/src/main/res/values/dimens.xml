@@ -6,5 +6,5 @@
     <dimen name="card_padding_horizontal">40dp</dimen>
 
     <dimen name="card_elevation_low">2dp</dimen>
-    <dimen name="card_elevation_high">8dp</dimen>
+    <dimen name="card_elevation_high">12dp</dimen>
 </resources>
