@@ -34,4 +34,13 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Text.Setting" parent="Text.Paragraph">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Setting.Small" parent="Text.Paragraph">
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

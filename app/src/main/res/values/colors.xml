@@ -6,4 +6,10 @@
 
     <color name="background">#FCF3E4</color>
     <color name="text_accent">#7E521A</color>
+
+    <color name="secondary_background">#FCF0DC</color>
+    <color name="on_secondary_background">#A47336</color>
+
+    <color name="accent_background">#A47336</color>
+    <color name="on_accent_background">#FCF3E4</color>
 </resources>

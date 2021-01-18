@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="cortado_header_height">200dp</dimen>
+    <dimen name="cortado_card_radius">24dp</dimen>
+    <dimen name="card_padding_vertical">24dp</dimen>
+    <dimen name="card_padding_horizontal">40dp</dimen>
+
+    <dimen name="card_elevation_low">2dp</dimen>
+    <dimen name="card_elevation_high">8dp</dimen>
 </resources>

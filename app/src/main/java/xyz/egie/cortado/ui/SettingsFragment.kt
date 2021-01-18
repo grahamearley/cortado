@@ -29,10 +29,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cortadoSwitch.isChecked = settingsManager.isScreenDimAtMaxTime
 
-        cortadoSwitch.setOnCheckedChangeListener { _, isChecked ->
-            settingsManager.isScreenDimAtMaxTime = isChecked
+        cortadoSwitch.setOnToggleListener { wasChecked ->
+            settingsManager.isScreenDimAtMaxTime = !wasChecked
         }
 
         screenTimeoutSettingLiveData.observe(this, Observer { onTimeoutChanged(it) })
@@ -40,12 +39,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private fun onTimeoutChanged(timeout: Duration) {
         val isAtMaxTime = settingsManager.isScreenDimAtMaxTime
-        cortadoSwitch.isChecked = isAtMaxTime
-
-        timeoutTextView.text = if (timeout.inMilliseconds >= Int.MAX_VALUE) {
-            "Timeout time = max!"
-        } else {
-            "Timeout time = ${timeout.inSeconds} seconds"
-        }
+        cortadoSwitch.setChecked(isAtMaxTime, timeout)
     }
 }
