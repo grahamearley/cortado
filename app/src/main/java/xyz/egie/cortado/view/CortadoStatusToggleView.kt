@@ -1,5 +1,6 @@
 package xyz.egie.cortado.view
 
+import android.animation.LayoutTransition
 import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
@@ -23,6 +24,10 @@ class CortadoStatusToggleView(context: Context, attrs: AttributeSet) : CardView(
         toggleSwitch.isClickable = false
         setCardBackgroundColor(resources.getColor(R.color.secondary_background, null))
         cardElevation = resources.getDimensionPixelSize(R.dimen.card_elevation_low).toFloat()
+
+        this.layoutTransition = LayoutTransition().apply {
+            enableTransitionType(LayoutTransition.CHANGING)
+        }
     }
 
     private var isChecked: Boolean = false
