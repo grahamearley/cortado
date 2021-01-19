@@ -1,13 +1,10 @@
 package xyz.egie.cortado.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
-import xyz.egie.cortado.data.CortadoPreferences
 import xyz.egie.cortado.R
-import xyz.egie.cortado.data.ScreenTimeoutSettingLiveData
+import xyz.egie.cortado.data.CortadoPreferences
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
@@ -18,8 +15,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         preferences.isTileAdded.observe(this) { isTileAdded ->
             onTileAddedChanged(isTileAdded)
