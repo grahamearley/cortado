@@ -18,10 +18,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
-        preferences.isTileAdded.observe(this,
-            Observer { isTileAdded -> onTileAddedChanged(isTileAdded) }
-        )
+        preferences.isTileAdded.observe(this) { isTileAdded ->
+            onTileAddedChanged(isTileAdded)
+        }
     }
 
     private fun onTileAddedChanged(isAdded: Boolean) {
