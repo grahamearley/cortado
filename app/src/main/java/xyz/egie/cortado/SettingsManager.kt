@@ -1,8 +1,11 @@
 package xyz.egie.cortado
 
 import android.content.ContentResolver
+import android.content.Context
+import android.content.Intent
 import android.provider.Settings
 import xyz.egie.cortado.data.CortadoPreferences
+import xyz.egie.cortado.ui.PermissionExplanationActivity
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -10,8 +13,8 @@ import kotlin.time.toDuration
 
 @ExperimentalTime
 class SettingsManager(
-    private val contentResolver: ContentResolver,
-    private val preferences: CortadoPreferences
+    private val context: Context,
+    private val preferences: CortadoPreferences = CortadoPreferences(context)
 ) {
 
     companion object {
@@ -45,13 +48,24 @@ class SettingsManager(
 
     private var screenOffTimeout: Duration
         get() {
-            return getScreenOffTimeout(contentResolver) ?: preferences.previousDimTimeout
+            return getScreenOffTimeout(context.contentResolver) ?: preferences.previousDimTimeout
         }
         set(value) {
-            Settings.System.putString(
-                contentResolver,
-                Settings.System.SCREEN_OFF_TIMEOUT,
-                value.toLongMilliseconds().toInt().toString()
-            )
+            try {
+                Settings.System.putString(
+                        context.contentResolver,
+                        Settings.System.SCREEN_OFF_TIMEOUT,
+                        value.toLongMilliseconds().toInt().toString()
+                )
+            } catch (exception: SecurityException) {
+                launchSettingsExplanation()
+            }
         }
+
+    private fun launchSettingsExplanation() {
+        val explanationIntent = Intent(context, PermissionExplanationActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        context.startActivity(explanationIntent)
+    }
 }

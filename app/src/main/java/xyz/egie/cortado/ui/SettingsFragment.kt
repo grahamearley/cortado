@@ -15,12 +15,8 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
-    private val preferences by lazy {
-        CortadoPreferences(requireContext())
-    }
-
     private val settingsManager by lazy {
-        SettingsManager(requireContext().contentResolver, preferences)
+        SettingsManager(requireContext())
     }
 
     private val screenTimeoutSettingLiveData by lazy {

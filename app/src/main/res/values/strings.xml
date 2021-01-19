@@ -7,6 +7,10 @@
     <string name="when_disabled_setting_header">When I disable Cortado, set my dim timeout to</string>
     <string name="confirmation_setting_header">When I enable Cortado,</string>
 
+    <string name="permission_intro_text">Cortado needs permission to modify your screen timeout settings.</string>
+    <string name="permission_detail_text">Tap the button below to grant Cortado access. You’ll see a list of apps. Tap Cortado, and enable access to settings.\n\nThis access will only be used to switch your screen dim settings.</string>
+    <string name="permission_cta">Go to Settings</string>
+
     <string name="setting_max_time">the maximum time.</string>
     <string name="setting_fixed_time_nanos">%1d nanoseconds.</string>
     <string name="setting_fixed_time_micros">%1d microseconds.</string>

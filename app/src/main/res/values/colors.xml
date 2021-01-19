@@ -11,5 +11,6 @@
     <color name="on_secondary_background">#A47336</color>
 
     <color name="accent_background">#A47336</color>
+    <color name="accent_background_ripple">#C5975E</color>
     <color name="on_accent_background">#FCF3E4</color>
 </resources>

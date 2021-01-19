@@ -24,7 +24,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         tools:text="Cortado is enabled."/>
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/toggleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

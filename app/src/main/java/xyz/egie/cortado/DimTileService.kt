@@ -6,6 +6,7 @@ import android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import xyz.egie.cortado.data.CortadoPreferences
+import xyz.egie.cortado.ui.PermissionExplanationActivity
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
@@ -16,7 +17,7 @@ class DimTileService : TileService() {
     }
 
     private val settingsManager by lazy {
-        SettingsManager(contentResolver, preferences)
+        SettingsManager(this, preferences)
     }
 
     override fun onStartListening() {
@@ -42,11 +43,10 @@ class DimTileService : TileService() {
         if (canWrite) {
             toggleCortado()
         } else {
-            // TODO: Add info page for why you need to do this
-            val permissionIntent = Intent(ACTION_MANAGE_WRITE_SETTINGS).apply {
+            val explanationIntent = Intent(this, PermissionExplanationActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
-            startActivityAndCollapse(permissionIntent)
+            startActivityAndCollapse(explanationIntent)
         }
     }
 
