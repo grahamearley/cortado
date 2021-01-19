@@ -19,4 +19,23 @@
     <string name="cortado_is_disabled">Cortado is disabled.</string>
     <string name="timeout_time_format">Your screen will turn off after %s seconds of inactivity.</string>
     <string name="timeout_max_time">Your screen will stay on until you turn it off.</string>
+    <string name="time_separator_and">and</string>
+    <string name="time_separator_list">,</string>
+
+    <plurals name="time_format_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="time_format_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="time_format_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <plurals name="time_format_seconds">
+        <item quantity="one">%d second</item>
+        <item quantity="other">%d seconds</item>
+    </plurals>
 </resources>

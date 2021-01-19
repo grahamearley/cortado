@@ -10,8 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
 import kotlinx.android.synthetic.main.view_cortado_status_toggle.view.*
 import xyz.egie.cortado.R
-import kotlin.time.Duration
-import kotlin.time.ExperimentalTime
+import kotlin.time.*
 
 @ExperimentalTime
 class CortadoStatusToggleView(context: Context, attrs: AttributeSet) : CardView(context, attrs) {
@@ -52,7 +51,7 @@ class CortadoStatusToggleView(context: Context, attrs: AttributeSet) : CardView(
         descriptionTextView.text = if (timeout.inMilliseconds.toInt() == Int.MAX_VALUE) {
             resources.getString(R.string.timeout_max_time)
         } else {
-            resources.getString(R.string.timeout_time_format, timeout.inSeconds.toString())
+            resources.getString(R.string.timeout_time_format, timeout.toPhrase(context))
         }
     }
 
@@ -96,5 +95,48 @@ class CortadoStatusToggleView(context: Context, attrs: AttributeSet) : CardView(
         animator.start()
 
         this.currentAnimator = animator
+    }
+
+    private fun Duration.toPhrase(context: Context): String {
+        var milliseconds = this.inMilliseconds.toInt()
+
+        val extractedDays = milliseconds / (1000 * 60 * 60 * 24)
+        milliseconds -= extractedDays.days.inMilliseconds.toInt()
+
+        val extractedHours = milliseconds / (1000 * 60 * 60)
+        milliseconds -= extractedHours.hours.inMilliseconds.toInt()
+
+        val extractedMinutes = milliseconds / (1000 * 60)
+        milliseconds -= extractedMinutes.minutes.inMilliseconds.toInt()
+
+        val extractedSeconds = milliseconds / 1000
+        milliseconds -= extractedSeconds.seconds.inMilliseconds.toInt()
+
+        val timeComponents = listOfNotNull(
+            extractedDays.takeIf { it > 0 }
+                ?.let { context.resources.getQuantityString(R.plurals.time_format_days, it, it) },
+            extractedHours.takeIf { it > 0 }
+                ?.let { context.resources.getQuantityString(R.plurals.time_format_hours, it, it) },
+            extractedMinutes.takeIf { it > 0 }
+                ?.let { context.resources.getQuantityString(R.plurals.time_format_minutes, it, it) },
+            extractedSeconds.takeIf { it > 0 }
+                ?.let { context.resources.getQuantityString(R.plurals.time_format_seconds, it, it) }
+        )
+
+        return when (timeComponents.size) {
+            0 -> context.resources.getQuantityString(R.plurals.time_format_seconds, 0, 0)
+            1 -> timeComponents.first()
+            2 -> {
+                val separator = context.getString(R.string.time_separator_and)
+                return timeComponents.joinToString(separator = " $separator ")
+            }
+            else -> {
+                val commaSeparator = context.getString(R.string.time_separator_list)
+                val andSeparator = context.getString(R.string.time_separator_and)
+                return timeComponents.joinToString(separator = "$commaSeparator ") { component ->
+                    if (component == timeComponents.last()) "$andSeparator $component" else component
+                }
+            }
+        }
     }
 }
